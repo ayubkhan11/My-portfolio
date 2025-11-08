@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ayub Khan J — Portfolio</title>
+
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Styles -->
+<link rel="stylesheet" href="css/style.css" />
+
+<!-- Favicon (Tab Icon) -->
+<link rel="icon" href="/favicon.png">
+
+<style>
+/* Universe background */
+.universe {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+  background: #000;
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0%, #ffd700 70%);
+  opacity: 0.8;
+  animation: twinkle 2s infinite alternate;
+}
+
+.nebula {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.3;
+  width: 250px; height: 250px;
+  background: radial-gradient(circle, rgba(255,0,150,0.2) 0%, rgba(0,255,255,0.2) 40%, rgba(0,0,255,0.1) 70%, transparent 100%);
+  filter: blur(50px);
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.4; }
+  100% { opacity: 0.9; }
+}
+
+/* Sidebar & profile social icons */
+.profile img {
+  border-radius: 50%;
+  box-shadow: none;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+}
+
+.profile-social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 12px;
+}
+
+.profile-social a {
+  color: #fff;
+  font-size: 18px;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.profile-social a:hover {
+  color: #ffd700;
+  transform: translateY(-3px);
+}
+</style>
+</head>
+<body>
+
+<!-- Universe background container -->
+<div class="universe" id="universe"></div>
+
+<div class="app-window">
+
+  <aside class="sidebar">
+    <div class="window-dots">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+    </div>
+
+    <div class="profile">
+      <img src="/images/profile.png" alt="Ayub Khan">
+    </div>
+
+    <!-- Profile social icons (horizontal) -->
+    <div class="profile-social">
+      <a href="https://www.linkedin.com/in/ayub-khan-218630375?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/ayubkhan11" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="mailto:kayub1601@gmail.com" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+
+    <nav class="nav">
+      <h4>Categories</h4>
+      <div class="nav-item active" data-section="about"><i class="fas fa-flag"></i><span>About</span></div>
+      <div class="nav-item" data-section="skills"><i class="fas fa-cogs"></i><span>Skills</span></div>
+      <div class="nav-item" data-section="projects"><i class="fas fa-code"></i><span>Projects</span></div>
+      <div class="nav-item" data-section="jobs"><i class="fas fa-briefcase"></i><span>Experience</span></div>
+      <div class="nav-item" data-section="education"><i class="fas fa-graduation-cap"></i><span>Education</span></div>
+    </nav>
+  </aside>
+
+  <main class="main">
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="hero">
+        <div class="hero-left">
+          <h1>Ayub Khan J</h1>
+          <p class="subtitle">Junior App Developer | Flutter & Dart Specialist</p>
+          <p class="hero-desc">
+            I am looking for an opportunity in a large multi-site organization providing financial management,
+            customer service and exceptional support for all aspects of development in an organization.
+          </p>
+          <div class="contact-line">
+            <span><strong>Phone:</strong> +91 7904463409</span>
+            <span><strong>Email:</strong> kayub1601@gmail.com</span>
+          </div>
+          <a class="btn-download" href="resume/Ayub_Khan_J_Resume.pdf" download>Download Resume</a>
+        </div>
+        <div class="hero-right">
+          <img src="images/hero-illustration.png" alt="Hero illustration">
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <h2 class="section-title">My Skills</h2>
+      <div class="skills-row">
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg"><span>Flutter</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg"><span>Dart</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"><span>Next.js</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"><span>Python</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"><span>HTML</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"><span>CSS</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg"><span>Postman</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg"><span>Android Studio</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xcode/xcode-original.svg"><span>Xcode</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"><span>Firebase</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"><span>Git</span></div>
+      </div>
+    </section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <h2 class="section-title">My Projects</h2>
+  <div class="project-grid">
+    <div class="project card">
+      <h3><i class="fas fa-code"></i> GPRS</h3>
+      <p>Service booking app for home appliances that lets users schedule repairs with verified professionals. Includes call masking to ensure secure communication.</p>
+      <div class="project-tech-icons">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" title="Flutter">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" title="Dart">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" title="Postman">
+      </div>
+    </div>
+    <div class="project card">
+      <h3><i class="fas fa-code"></i> Pilling</h3>
+      <p>Construction management app for tracking tasks and requesting materials. Includes SOS quick-call and easy communication between site workers and officers.</p>
+      <div class="project-tech-icons">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" title="Flutter">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" title="Dart">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg" title="Android Studio">
+      </div>
+    </div>
+    <div class="project card">
+      <h3><i class="fas fa-code"></i> Flicky</h3>
+      <p>Short-form video sharing app where users can watch, upload, and interact with reels. Supports advanced media features like trimming and merging audio tracks.</p>
+      <div class="project-tech-icons">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" title="Flutter">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" title="Dart">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" title="Postman">
+      </div>
+    </div>
+    <div class="project card">
+      <h3><i class="fas fa-code"></i> Hi-Tech Constructions</h3>
+      <p>Website for a construction company showcasing services, projects, and company details with a clean and responsive design.</p>
+      <div class="project-tech-icons">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" title="HTML">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" title="CSS">
+      </div>
+    </div>
+    <div class="project card">
+      <h3><i class="fas fa-code"></i> WhatsApp Automation Message</h3>
+      <p>Python-based automation tool for sending bulk WhatsApp messages using Selenium and ChromeDriver, designed to streamline communication tasks.</p>
+      <div class="project-tech-icons">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" title="Python">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg" title="Selenium">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg" title="ChromeDriver">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- EXPERIENCE -->
+    <section id="jobs" class="section">
+      <h2 class="section-title">Experience</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3><i class="fas fa-briefcase"></i> Codegen Solutions <span class="muted">June 2024 – Present</span></h3>
+          <p><strong>Junior App Developer</strong></p>
+        </div>
+        <div class="card">
+          <h3><i class="fas fa-briefcase"></i> Coderzbot Technology <span class="muted">April 2023 – May 2024</span></h3>
+          <p><strong>Junior App Developer</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="section">
+      <h2 class="section-title">Education</h2>
+      <div class="card-grid">
+        <div class="card"><h3><i class="fas fa-graduation-cap"></i> B.Sc Computer Science <span class="muted">7.2 CGPA</span></h3><p>Periyar University</p></div>
+        <div class="card"><h3><i class="fas fa-graduation-cap"></i> XII <span class="muted">62%</span></h3><p>Govt Boys Higher Secondary</p></div>
+        <div class="card"><h3><i class="fas fa-graduation-cap"></i> X <span class="muted">80%</span></h3><p>Govt Boys Higher Secondary School</p></div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- JS -->
+<script src="js/main.js"></script>
+<script>
+// Universe background script
+const universe = document.getElementById('universe');
+const starsCount = 150;
+const nebulaCount = 4;
+
+// Create stars
+for (let i = 0; i < starsCount; i++) {
+  const star = document.createElement('div');
+  star.className = 'star';
+  const size = Math.random() * 2 + 1;
+  star.style.width = size + 'px';
+  star.style.height = size + 'px';
+  star.style.top = Math.random() * window.innerHeight + 'px';
+  star.style.left = Math.random() * window.innerWidth + 'px';
+  star.dataset.speed = (Math.random() * 0.5 + 0.1);
+  universe.appendChild(star);
+}
+
+// Create nebulae
+for (let i = 0; i < nebulaCount; i++) {
+  const nebula = document.createElement('div');
+  nebula.className = 'nebula';
+  nebula.style.top = Math.random() * window.innerHeight + 'px';
+  nebula.style.left = Math.random() * window.innerWidth + 'px';
+  nebula.dataset.speed = (Math.random() * 0.3 + 0.05);
+  universe.appendChild(nebula);
+}
+
+// Cursor-based parallax
+document.addEventListener('mousemove', e => {
+  const centerX = window.innerWidth / 2;
+  const centerY = window.innerHeight / 2;
+  const moveX = (e.clientX - centerX) / centerX;
+  const moveY = (e.clientY - centerY) / centerY;
+
+  document.querySelectorAll('.star, .nebula').forEach(el => {
+    const speed = parseFloat(el.dataset.speed);
+    el.style.transform = `translate(${moveX * speed * 50}px, ${moveY * speed * 50}px)`;
+  });
+});
+</script>
+<script src="js/chatbot-embed.js"></script>
+</body>
+</html>
