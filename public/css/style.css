@@ -327,34 +327,177 @@ body {
   color: #fff;
 }
 
-/* =============== TRANSFORMER MORPH ICON =============== */
-.portfolio-chat-icon {
-  width: 65px;
-  height: 65px;
-  background: linear-gradient(135deg, #0061ff, #0f8bff);
-  color: white;
-  border-radius: 50%;
+/* Contact Button */
+.contact-btn {
+    margin-top: auto;
+    padding: 12px;
+    border-radius: 8px;
+    background: #00d4ff;
+    border: none;
+}
+/* CONTACT SECTION (FULL WIDTH LIKE SCREENSHOT) */
+.contact-section {
+  width: 100%;
+  min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 28px;
-  cursor: pointer;
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  z-index: 9999;
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+  align-items: center;
+  background: #0f1217;
+  padding: 60px 4vw;
 }
 
-/* M OR P H  into chat window */
-.portfolio-chat-icon.transforming {
-  width: 380px;
-  height: 500px;
-  border-radius: 18px;
-  right: 20px;
-  bottom: 20px;
-  transform: rotate(0) scale(1.05);
+.contact-wrapper {
+  width: 100%;
+  max-width: 1250px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
+
+/* LEFT TEXT SECTION */
+.contact-left {
+  width: 40%;
+  color: #fff;
+}
+
+.contact-left h2 {
+  font-size: 48px;
+  font-weight: 700;
+  color: #00a8ff;
+}
+
+.contact-left .sub-text {
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+/* Email + location boxes */
+.info-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 25px;
+  font-size: 18px;
+  color: #ddd;
+}
+
+.info-box i {
+  font-size: 22px;
+  background: rgba(255,255,255,0.1);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* RIGHT FORM CARD */
+.contact-form-card {
+  width: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 15px;
+  border: 2px solid rgba(255,255,255,0.15);
+  color: #fff;
+}
+
+.contact-form-card h3 {
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+
+.contact-form-card .form-text {
+  font-size: 16px;
+  opacity: 0.9;
+  margin-bottom: 22px;
+}
+
+/* Inputs */
+.contact-form-card input,
+.contact-form-card textarea {
+  width: 100%;
+  padding: 16px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 2px solid rgba(255,255,255,0.3);
+  background: transparent;
+  color: #fff;
+  outline: none;
+  margin-bottom: 15px;
+}
+
+.contact-form-card textarea {
+  height: 130px;
+  resize: none;
+}
+
+/* Gradient Send Button */
+.send-btn {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 600;
+  background: linear-gradient(to right, #00e1ff, #b400ff);
+}
+
+.send-btn:hover {
+  opacity: 0.9;
+}
+
+/* RESPONSIVE FORM */
+@media (max-width: 900px) {
+  .contact-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+  .contact-left, .contact-form-card {
+    width: 100%;
+  }
+}
+
+/* Base style */
+.status-message {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #4caf50; /* green for success */
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.5s ease;
+  z-index: 9999;
+}
+
+/* Error style */
+.status-message.error {
+  background: #f44336;
+}
+
+/* Show animation */
+.status-message.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  animation: pop 0.5s ease forwards;
+}
+
+/* Pop animation */
+@keyframes pop {
+  0% {
+    transform: translateY(-20px) scale(0.8);
+  }
+  60% {
+    transform: translateY(0) scale(1.1);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
 
 /* =============== CHAT WINDOW =============== */
 .portfolio-chat-widget {
