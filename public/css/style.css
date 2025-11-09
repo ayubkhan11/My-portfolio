@@ -303,33 +303,7 @@ body {
   transform: translateX(0);
 }
 
-/* ✅ Mobile layout — text top, form below */
-@media (max-width: 900px) {
-  .contact-wrapper {
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-  }
-
-  .contact-left,
-  .contact-form-card {
-    width: 100%;
-  }
-
-  .contact-left h2 {
-    font-size: 36px;
-    text-align: center;
-  }
-
-  .contact-left .sub-text,
-  .info-box {
-    text-align: center;
-    justify-content: center;
-  }
-}
-
-
-/* ===== CONTACT SECTION (Form card only) ===== */
+/* ===== CONTACT SECTION ===== */
 .contact-section {
   width: 100%;
   min-height: 100vh;
@@ -338,20 +312,32 @@ body {
   align-items: center;
   padding: 60px 4vw;
 }
+
 .contact-wrapper {
   width: 100%;
   max-width: 1250px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 40px;
 }
 
-/* LEFT TEXT SECTION */
-.contact-left { width: 40%; color: #fff; }
-.contact-left h2 { font-size: 48px; font-weight: 700; color: #00a8ff; }
-.contact-left .sub-text { margin-top: 10px; opacity: 0.8; }
+/* LEFT SIDE */
+.contact-left {
+  width: 45%;
+  color: #fff;
+  animation: slideLeft 0.6s ease-out;
+}
+.contact-left h2 {
+  font-size: 48px;
+  font-weight: 700;
+  color: #00a8ff;
+}
+.sub-text {
+  margin-top: 10px;
+  opacity: 0.8;
+}
 
-/* Email + location boxes */
 .info-box {
   display: flex;
   align-items: center;
@@ -369,29 +355,86 @@ body {
 
 /* RIGHT FORM CARD */
 .contact-form-card {
-  width: 50%;
+  width: 55%;
   background: linear-gradient(135deg, #ff6fd880 0%, #3813c280 100%);
   backdrop-filter: blur(20px);
   border-radius: 16px;
   border: 1px solid rgba(255,255,255,0.2);
   padding: 40px;
   color: #fff;
+  animation: slideRight 0.6s ease-out;
 }
-.contact-form-card h3 { font-size: 26px; margin-bottom: 8px; }
-.contact-form-card .form-text { font-size: 16px; opacity: 0.9; margin-bottom: 22px; }
 
-/* Inputs */
-.contact-form-card input, .contact-form-card textarea {
-  width: 100%; padding: 16px; font-size: 16px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.3); background: transparent; color: #fff; outline: none; margin-bottom: 15px;
+.contact-form-card h3 {
+  font-size: 26px;
+  margin-bottom: 12px;
 }
-.contact-form-card textarea { height: 130px; resize: none; }
 
-/* Gradient Send Button */
+/* FORM INPUTS FIX — full width always */
+.contact-form-card input,
+.contact-form-card textarea {
+  width: 100%;
+  display: block;
+  padding: 16px;
+  font-size: 16px;
+  font-family: inherit;
+  border-radius: 8px;
+  border: 2px solid rgba(255,255,255,0.3);
+  background: transparent;
+  color: #fff;
+  outline: none;
+  margin-bottom: 15px;
+}
+.contact-form-card textarea {
+  height: 130px;
+  resize: none;
+}
+
+/* BUTTON */
 .send-btn {
-  width: 100%; padding: 16px; border: none; border-radius: 8px; font-size: 18px; cursor: pointer; color: #fff; font-weight: 600;
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 600;
   background: linear-gradient(to right, #00e1ff, #b400ff);
+  transition: transform 0.2s ease-in-out;
 }
-.send-btn:hover { opacity: 0.9; }
+.send-btn:hover {
+  transform: scale(1.03);
+}
+
+/* Animations */
+@keyframes slideRight {
+  0% { transform: translateX(60px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideLeft {
+  0% { transform: translateX(-60px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+/* ===== RESPONSIVE – MOBILE FIX ===== */
+@media (max-width: 900px) {
+  .contact-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-left,
+  .contact-form-card {
+    width: 100%;
+  }
+
+  .contact-form-card {
+    padding: 28px;
+  }
+}
+
 
 /* ===== Status message (success / error) ===== */
 .status-message {
