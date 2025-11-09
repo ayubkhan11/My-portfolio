@@ -10,12 +10,18 @@ navItems.forEach(item => {
     const id = item.dataset.section;
     const section = document.getElementById(id);
 
-    mainContent.scrollTo({ top: section.offsetTop, behavior: "smooth" });
+    const containerHeight = mainContent.clientHeight;
+    const sectionHeight = section.offsetHeight;
+    const scrollTop = section.offsetTop - (containerHeight / 2) + (sectionHeight / 2);
+
+    mainContent.scrollTo({ top: scrollTop, behavior: "smooth" });
 
     navItems.forEach(nav => nav.classList.remove("active"));
     item.classList.add("active");
   });
 });
+
+
 
 // Animate skills on scroll
 const skillElements = document.querySelectorAll(".skill");
