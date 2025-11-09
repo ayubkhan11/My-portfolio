@@ -158,3 +158,15 @@ function showMessage(message, type) {
 }
 
 });
+// Slide-in animation when element enters viewport
+const slideElement = document.querySelector('.slide-in-right');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      slideElement.classList.add('slide-in-visible');
+    }
+  });
+});
+
+observer.observe(slideElement);

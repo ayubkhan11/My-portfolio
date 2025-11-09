@@ -290,6 +290,45 @@ body {
 /* Contact Button */
 .contact-btn { margin-top: auto; padding: 12px; border-radius: 8px; background: #00d4ff; border: none; }
 
+/* ========== SLIDE-IN ANIMATION ========== */
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(120px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Applied when visible */
+.slide-in-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ✅ Mobile layout — text top, form below */
+@media (max-width: 900px) {
+  .contact-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .contact-left,
+  .contact-form-card {
+    width: 100%;
+  }
+
+  .contact-left h2 {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .contact-left .sub-text,
+  .info-box {
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+
 /* ===== CONTACT SECTION (Form card only) ===== */
 .contact-section {
   width: 100%;
