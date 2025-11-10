@@ -1,350 +1,631 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ayub Khan J — Portfolio</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ayub Khan J — Portfolio</title>
 
-<!-- Responsive -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<!-- Primary Meta Tags -->
-<title>Ayub Khan | Full-Stack Developer | Flutter & Next.js Expert</title>
-<meta name="title" content="Ayub Khan | Full-Stack Developer | Flutter & Next.js Expert" />
-<meta name="description" content="Hi, I'm Ayub Khan — a passionate developer skilled in Flutter, Dart, Next.js, and Python. I build fast, modern, and scalable digital experiences that help businesses grow." />
-<meta name="keywords" content="Ayub Khan, Flutter developer, Next.js developer, Dart, Python, Firebase, web developer, full-stack developer, portfolio, CoderzWeb, UI design, SEO, digital marketing" />
+    <!-- Primary Meta Tags -->
+    <title>Ayub Khan | Full-Stack Developer | Flutter & Next.js Expert</title>
+    <meta
+      name="title"
+      content="Ayub Khan | Full-Stack Developer | Flutter & Next.js Expert"
+    />
+    <meta
+      name="description"
+      content="Hi, I'm Ayub Khan — a passionate developer skilled in Flutter, Dart, Next.js, and Python. I build fast, modern, and scalable digital experiences that help businesses grow."
+    />
+    <meta
+      name="keywords"
+      content="Ayub Khan, Flutter developer, Next.js developer, Dart, Python, Firebase, web developer, full-stack developer, portfolio, CoderzWeb, UI design, SEO, digital marketing"
+    />
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://ayubkhan-portfolio.vercel.app/" />
-<meta property="og:title" content="Ayub Khan | Full-Stack Developer | Flutter & Next.js Expert" />
-<meta property="og:description" content="Full-stack developer crafting high-performance apps and websites using Flutter, Next.js, and Python. Let's build something great together!" />
-<meta property="og:image" content="https://ayubkhan-portfolio.vercel.app/images/og-banner.webp" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ayubkhan-portfolio.vercel.app/" />
+    <meta
+      property="og:title"
+      content="Ayub Khan | Full-Stack Developer | Flutter & Next.js Expert"
+    />
+    <meta
+      property="og:description"
+      content="Full-stack developer crafting high-performance apps and websites using Flutter, Next.js, and Python. Let's build something great together!"
+    />
+    <meta
+      property="og:image"
+      content="https://ayubkhan-portfolio.vercel.app/images/og-banner.webp"
+    />
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Ayub Khan | Full-Stack Developer | Flutter & Next.js Expert" />
-<meta name="twitter:description" content="Passionate full-stack developer building fast, modern web and mobile apps using Flutter, Next.js, and Python." />
-<meta name="twitter:image" content="https://ayubkhan-portfolio.vercel.app/images/og-banner.webp" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Ayub Khan | Full-Stack Developer | Flutter & Next.js Expert"
+    />
+    <meta
+      name="twitter:description"
+      content="Passionate full-stack developer building fast, modern web and mobile apps using Flutter, Next.js, and Python."
+    />
+    <meta
+      name="twitter:image"
+      content="https://ayubkhan-portfolio.vercel.app/images/og-banner.webp"
+    />
 
-<!-- Canonical -->
-<link rel="canonical" href="https://ayubkhan-portfolio.vercel.app/" />
+    <!-- Canonical -->
+    <link rel="canonical" href="https://ayubkhan-portfolio.vercel.app/" />
 
-<!-- ✅ Preload critical images -->
-<link rel="preload" as="image" href="images/profile.webp" fetchpriority="high">
-<link rel="preload" as="image" href="images/hero-illustration.webp" fetchpriority="high">
+    <!-- ✅ Preload critical images -->
+    <link
+      rel="preload"
+      as="image"
+      href="images/profile.webp"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="images/hero-illustration.webp"
+      fetchpriority="high"
+    />
 
-<!-- ✅ Preconnect to critical domains -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <!-- ✅ Preconnect to critical domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
 
-<!-- ✅ Preload & non-blocking CSS -->
-<link rel="preload" href="css/style.css" as="style">
-<link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="css/style.css"></noscript>
+    <!-- ✅ Preload & non-blocking CSS -->
+    <link rel="preload" href="css/style.css" as="style" />
+    <link
+      rel="stylesheet"
+      href="css/style.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript><link rel="stylesheet" href="css/style.css" /></noscript>
 
-<!-- ✅ Google Fonts -->
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"></noscript>
+    <!-- ✅ Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+    /></noscript>
 
-<!-- ✅ Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- ✅ Font Awesome Optimization -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
 
-<!-- ✅ Favicon -->
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-<link rel="shortcut icon" href="/favicon.png" type="image/png">
+    <!-- ✅ Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="shortcut icon" href="/favicon.png" type="image/png" />
 
-<style>
-/* --- Critical Above-the-Fold CSS --- */
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #000;
-  color: #fff;
-  overflow-x: hidden;
-}
+    <style>
+      /* --- Critical Above-the-Fold CSS --- */
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: #000;
+        color: #fff;
+        overflow-x: hidden;
+      }
 
-/* Universe Background */
-.universe {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  z-index: -1;
-  background: #000;
-}
-.star {
-  position: absolute;
-  border-radius: 50%;
-  background: radial-gradient(circle, #fff 0%, #ffd700 70%);
-  opacity: 0.8;
-  animation: twinkle 2s infinite alternate;
-}
-.nebula {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.3;
-  width: 250px;
-  height: 250px;
-  background: radial-gradient(circle,
-    rgba(255,0,150,0.2) 0%,
-    rgba(0,255,255,0.2) 40%,
-    rgba(0,0,255,0.1) 70%,
-    transparent 100%);
-  filter: blur(50px);
-}
-@keyframes twinkle {
-  0% { opacity: 0.4; }
-  100% { opacity: 0.9; }
-}
-</style>
-</head>
+      /* Universe Background */
+      .universe {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        z-index: -1;
+        background: #000;
+      }
+      .star {
+        position: absolute;
+        border-radius: 50%;
+        background: radial-gradient(circle, #fff 0%, #ffd700 70%);
+        opacity: 0.8;
+        animation: twinkle 2s infinite alternate;
+      }
+      .nebula {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.3;
+        width: 250px;
+        height: 250px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 0, 150, 0.2) 0%,
+          rgba(0, 255, 255, 0.2) 40%,
+          rgba(0, 0, 255, 0.1) 70%,
+          transparent 100%
+        );
+        filter: blur(50px);
+      }
+      @keyframes twinkle {
+        0% {
+          opacity: 0.4;
+        }
+        100% {
+          opacity: 0.9;
+        }
+      }
+    </style>
+  </head>
 
-<body>
-<!-- Universe background container -->
-<div class="universe" id="universe"></div>
+  <body>
+    <!-- Universe background container -->
+    <div class="universe" id="universe"></div>
 
-<div class="app-window">
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <div class="window-dots">
-      <span class="dot red"></span>
-      <span class="dot yellow"></span>
-      <span class="dot green"></span>
-    </div>
-
-    <div class="profile">
-      <picture>
-        <source srcset="images/profile.webp" type="image/webp">
-        <img src="images/profile.png" alt="Ayub Khan" width="150" height="150" loading="lazy">
-      </picture>
-    </div>
-
-    <div class="profile-social">
-      <a href="https://www.linkedin.com/in/ayub-khan-218630375" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/ayubkhan11" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
-      <a href="mailto:kayub1601@gmail.com" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
-    </div>
-
-    <nav class="nav">
-      <h4>Categories</h4>
-      <div class="nav-item active" data-section="about"><i class="fas fa-flag"></i><span>About</span></div>
-      <div class="nav-item" data-section="skills"><i class="fas fa-cogs"></i><span>Skills</span></div>
-      <div class="nav-item" data-section="projects"><i class="fas fa-code"></i><span>Projects</span></div>
-      <div class="nav-item" data-section="jobs"><i class="fas fa-briefcase"></i><span>Experience</span></div>
-      <div class="nav-item" data-section="education"><i class="fas fa-graduation-cap"></i><span>Education</span></div>
-      <div class="nav-item" data-section="contact"><i class="fas fa-address-book"></i><span>Contact</span></div>
-    </nav>
-  </aside>
-
-  <!-- MAIN CONTENT -->
-  <main class="main">
-
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <div class="hero">
-        <div class="hero-left">
-          <h1>Ayub Khan J</h1>
-          <p class="subtitle">Junior App Developer | Flutter & Dart Specialist</p>
-          <p class="hero-desc">
-            I am looking for an opportunity in a large multi-site organization providing financial management,
-            customer service and exceptional support for all aspects of development in an organization.
-          </p>
-          <div class="contact-line">
-            <span><strong>Phone:</strong> +91 7904463409</span>
-            <span><strong>Email:</strong> kayub1601@gmail.com</span>
-          </div>
-          <a class="btn-download" href="resume/Ayub_Khan_J_Resume.pdf" download>Download Resume</a>
+    <div class="app-window">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="window-dots">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
         </div>
-        <div class="hero-right">
+
+        <div class="profile">
           <picture>
-            <source srcset="images/hero-illustration.webp" type="image/webp">
-            <img src="images/hero-illustration.png" alt="Hero illustration" loading="lazy" fetchpriority="high">
+            <source srcset="images/profile.webp" type="image/webp" />
+            <img
+              src="images/profile.png"
+              alt="Ayub Khan"
+              width="150"
+              height="150"
+              loading="lazy"
+            />
           </picture>
         </div>
-      </div>
-    </section>
 
-    <!-- SKILLS -->
-    <section id="skills" class="section">
-      <h2 class="section-title">My Skills</h2>
-      <div class="skills-row">
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/flutter/flutter-original.svg"><span>Flutter</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/dart/dart-original.svg"><span>Dart</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/nextjs/nextjs-original.svg"><span>Next.js</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/python/python-original.svg"><span>Python</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/html5/html5-original.svg"><span>HTML</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/css3/css3-original.svg"><span>CSS</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/postman/postman-original.svg"><span>Postman</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/androidstudio/androidstudio-original.svg"><span>Android Studio</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/xcode/xcode-original.svg"><span>Xcode</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/firebase/firebase-plain.svg"><span>Firebase</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/git/git-original.svg"><span>Git</span></div>
-      </div>
-    </section>
+        <div class="profile-social">
+          <a
+            href="https://www.linkedin.com/in/ayub-khan-218630375"
+            class="social-icon"
+            title="LinkedIn"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a
+            href="https://github.com/ayubkhan11"
+            class="social-icon"
+            title="GitHub"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a href="mailto:kayub1601@gmail.com" class="social-icon" title="Email"
+            ><i class="fas fa-envelope"></i
+          ></a>
+        </div>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="section">
-      <h2 class="section-title">My Projects</h2>
-      <div class="project-grid">
-
-        <div class="project card">
-          <h3><i class="fas fa-code"></i> GPRS</h3>
-          <p>Service booking app for home appliances that lets users schedule repairs with verified professionals. Includes call masking for secure communication.</p>
-          <div class="project-tech-icons">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" title="Flutter">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" title="Dart">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" title="Postman">
+        <nav class="nav">
+          <h4>Categories</h4>
+          <div class="nav-item active" data-section="about">
+            <i class="fas fa-flag"></i><span>About</span>
           </div>
-        </div>
-
-        <div class="project card">
-          <h3><i class="fas fa-code"></i> Pilling</h3>
-          <p>Construction management app for tracking tasks and requesting materials. Includes SOS quick-call and easy communication between site workers and officers.</p>
-          <div class="project-tech-icons">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" title="Flutter">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" title="Dart">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg" title="Android Studio">
+          <div class="nav-item" data-section="skills">
+            <i class="fas fa-cogs"></i><span>Skills</span>
           </div>
-        </div>
-
-        <div class="project card">
-          <h3><i class="fas fa-code"></i> Flicky</h3>
-          <p>Short-form video app with upload, watch, and interaction features. Includes advanced editing tools for trimming and merging audio tracks.</p>
-          <div class="project-tech-icons">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" title="Flutter">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" title="Dart">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" title="Postman">
+          <div class="nav-item" data-section="projects">
+            <i class="fas fa-code"></i><span>Projects</span>
           </div>
-        </div>
-
-        <div class="project card">
-          <h3><i class="fas fa-code"></i> Hi-Tech Constructions</h3>
-          <p>Company website showcasing services, projects, and details with a clean and responsive design.</p>
-          <div class="project-tech-icons">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" title="HTML">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" title="CSS">
+          <div class="nav-item" data-section="jobs">
+            <i class="fas fa-briefcase"></i><span>Experience</span>
           </div>
-        </div>
-
-        <div class="project card">
-          <h3><i class="fas fa-code"></i> WhatsApp Automation Message</h3>
-          <p>Python-based automation tool for sending bulk WhatsApp messages using Selenium and ChromeDriver.</p>
-          <div class="project-tech-icons">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" title="Python">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg" title="Selenium">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg" title="ChromeDriver">
+          <div class="nav-item" data-section="education">
+            <i class="fas fa-graduation-cap"></i><span>Education</span>
           </div>
-        </div>
-      </div>
-    </section>
+          <div class="nav-item" data-section="contact">
+            <i class="fas fa-address-book"></i><span>Contact</span>
+          </div>
+        </nav>
+      </aside>
 
-    <!-- EXPERIENCE -->
-    <section id="jobs" class="section">
-      <h2 class="section-title">Experience</h2>
-      <div class="card-grid">
-        <div class="card">
-          <h3><i class="fas fa-briefcase"></i> Codegen Solutions <span class="muted">June 2024 – Present</span></h3>
-          <p><strong>Junior App Developer</strong></p>
-        </div>
-        <div class="card">
-          <h3><i class="fas fa-briefcase"></i> Coderzbot Technology <span class="muted">April 2023 – May 2024</span></h3>
-          <p><strong>Junior App Developer</strong></p>
-        </div>
-      </div>
-    </section>
+      <!-- MAIN CONTENT -->
+      <main class="main">
+        <!-- ABOUT -->
+        <section id="about" class="section">
+          <div class="hero">
+            <div class="hero-left">
+              <h1>Ayub Khan J</h1>
+              <p class="subtitle">
+                Junior App Developer | Flutter & Dart Specialist
+              </p>
+              <p class="hero-desc">
+                I am looking for an opportunity in a large multi-site
+                organization providing financial management, customer service
+                and exceptional support for all aspects of development in an
+                organization.
+              </p>
+              <div class="contact-line">
+                <span><strong>Phone:</strong> +91 7904463409</span>
+                <span><strong>Email:</strong> kayub1601@gmail.com</span>
+              </div>
+              <a
+                class="btn-download"
+                href="resume/Ayub_Khan_J_Resume.pdf"
+                download
+                >Download Resume</a
+              >
+            </div>
+            <div class="hero-right">
+              <picture>
+                <source
+                  srcset="images/hero-illustration.webp"
+                  type="image/webp"
+                />
+                <img
+                  src="images/hero-illustration.png"
+                  alt="Hero illustration"
+                  loading="lazy"
+                  fetchpriority="high"
+                />
+              </picture>
+            </div>
+          </div>
+        </section>
 
-    <!-- EDUCATION -->
-    <section id="education" class="section">
-      <h2 class="section-title">Education</h2>
-      <div class="card-grid">
-        <div class="card"><h3><i class="fas fa-graduation-cap"></i> B.Sc Computer Science <span class="muted">7.2 CGPA</span></h3><p>Periyar University</p></div>
-        <div class="card"><h3><i class="fas fa-graduation-cap"></i> XII <span class="muted">62%</span></h3><p>Govt Boys Higher Secondary</p></div>
-        <div class="card"><h3><i class="fas fa-graduation-cap"></i> X <span class="muted">80%</span></h3><p>Govt Boys Higher Secondary School</p></div>
-      </div>
-    </section>
+        <!-- SKILLS -->
+        <section id="skills" class="section">
+          <h2 class="section-title">My Skills</h2>
+          <div class="skills-row">
+            <div class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/flutter/flutter-original.svg"
+              /><span>Flutter</span>
+            </div>
+            <div class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/dart/dart-original.svg"
+              /><span>Dart</span>
+            </div>
+            <div class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/nextjs/nextjs-original.svg"
+              /><span>Next.js</span>
+            </div>
+            <div class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/python/python-original.svg"
+              /><span>Python</span>
+            </div>
+            <div class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/html5/html5-original.svg"
+              /><span>HTML</span>
+            </div>
+            <div class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/css3/css3-original.svg"
+              /><span>CSS</span>
+            </div>
+            <div class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/postman/postman-original.svg"
+              /><span>Postman</span>
+            </div>
+            <div class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/androidstudio/androidstudio-original.svg"
+              /><span>Android Studio</span>
+            </div>
+            <div class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/xcode/xcode-original.svg"
+              /><span>Xcode</span>
+            </div>
+            <div class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/firebase/firebase-plain.svg"
+              /><span>Firebase</span>
+            </div>
+            <div class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/git/git-original.svg"
+              /><span>Git</span>
+            </div>
+          </div>
+        </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="contact-section">
-      <div class="contact-wrapper">
+        <!-- PROJECTS -->
+        <section id="projects" class="section">
+          <h2 class="section-title">My Projects</h2>
+          <div class="project-grid">
+            <div class="project card">
+              <h3><i class="fas fa-code"></i> GPRS</h3>
+              <p>
+                Service booking app for home appliances that lets users schedule
+                repairs with verified professionals. Includes call masking for
+                secure communication.
+              </p>
+              <div class="project-tech-icons">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg"
+                  title="Flutter"
+                />
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg"
+                  title="Dart"
+                />
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg"
+                  title="Postman"
+                />
+              </div>
+            </div>
 
-        <!-- LEFT -->
-        <div class="contact-left">
-          <h2>Get In Touch</h2>
-          <p class="sub-text">Just a form away! Drop your message.</p>
+            <div class="project card">
+              <h3><i class="fas fa-code"></i> Pilling</h3>
+              <p>
+                Construction management app for tracking tasks and requesting
+                materials. Includes SOS quick-call and easy communication
+                between site workers and officers.
+              </p>
+              <div class="project-tech-icons">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg"
+                  title="Flutter"
+                />
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg"
+                  title="Dart"
+                />
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg"
+                  title="Android Studio"
+                />
+              </div>
+            </div>
 
-          <div class="info-box"><i class="fas fa-envelope"></i><span>kayub1601@gmail.com</span></div>
-          <div class="info-box"><i class="fas fa-map-marker-alt"></i><span>Krishnagiri, Tamilnadu - 635001</span></div>
-        </div>
+            <div class="project card">
+              <h3><i class="fas fa-code"></i> Flicky</h3>
+              <p>
+                Short-form video app with upload, watch, and interaction
+                features. Includes advanced editing tools for trimming and
+                merging audio tracks.
+              </p>
+              <div class="project-tech-icons">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg"
+                  title="Flutter"
+                />
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg"
+                  title="Dart"
+                />
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg"
+                  title="Postman"
+                />
+              </div>
+            </div>
 
-        <!-- RIGHT -->
-        <div class="contact-form-card slide-in-right">
-          <h3>🚀 Let’s Connect!</h3>
-          <form id="contactForm">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="text" name="phone" placeholder="Your Phone Number" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Write your message..." required></textarea>
-            <button type="submit" class="send-btn">Send Message <i class="fas fa-paper-plane"></i></button>
-          </form>
-        </div>
-      </div>
-    </section>
+            <div class="project card">
+              <h3><i class="fas fa-code"></i> Hi-Tech Constructions</h3>
+              <p>
+                Company website showcasing services, projects, and details with
+                a clean and responsive design.
+              </p>
+              <div class="project-tech-icons">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                  title="HTML"
+                />
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                  title="CSS"
+                />
+              </div>
+            </div>
 
-  </main>
-</div>
+            <div class="project card">
+              <h3><i class="fas fa-code"></i> WhatsApp Automation Message</h3>
+              <p>
+                Python-based automation tool for sending bulk WhatsApp messages
+                using Selenium and ChromeDriver.
+              </p>
+              <div class="project-tech-icons">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                  title="Python"
+                />
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg"
+                  title="Selenium"
+                />
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg"
+                  title="ChromeDriver"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
 
-<!-- ✅ Scripts -->
-<script src="js/main.js" defer></script>
-<script>
-window.addEventListener("load", () => {
-  const s = document.createElement("script");
-  s.src = "js/chatbot-embed.js";
-  document.body.appendChild(s);
-});
-</script>
+        <!-- EXPERIENCE -->
+        <section id="jobs" class="section">
+          <h2 class="section-title">Experience</h2>
+          <div class="card-grid">
+            <div class="card">
+              <h3>
+                <i class="fas fa-briefcase"></i> Codegen Solutions
+                <span class="muted">June 2024 – Present</span>
+              </h3>
+              <p><strong>Junior App Developer</strong></p>
+            </div>
+            <div class="card">
+              <h3>
+                <i class="fas fa-briefcase"></i> Coderzbot Technology
+                <span class="muted">April 2023 – May 2024</span>
+              </h3>
+              <p><strong>Junior App Developer</strong></p>
+            </div>
+          </div>
+        </section>
 
-<!-- ✅ Universe Animation -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const universe = document.getElementById('universe');
-  const stars = 150, nebulas = 4;
+        <!-- EDUCATION -->
+        <section id="education" class="section">
+          <h2 class="section-title">Education</h2>
+          <div class="card-grid">
+            <div class="card">
+              <h3>
+                <i class="fas fa-graduation-cap"></i> B.Sc Computer Science
+                <span class="muted">7.2 CGPA</span>
+              </h3>
+              <p>Periyar University</p>
+            </div>
+            <div class="card">
+              <h3>
+                <i class="fas fa-graduation-cap"></i> XII
+                <span class="muted">62%</span>
+              </h3>
+              <p>Govt Boys Higher Secondary</p>
+            </div>
+            <div class="card">
+              <h3>
+                <i class="fas fa-graduation-cap"></i> X
+                <span class="muted">80%</span>
+              </h3>
+              <p>Govt Boys Higher Secondary School</p>
+            </div>
+          </div>
+        </section>
 
-  for (let i = 0; i < stars; i++) {
-    const star = document.createElement('div');
-    star.className = 'star';
-    const size = Math.random() * 2 + 1;
-    star.style.width = `${size}px`;
-    star.style.height = `${size}px`;
-    star.style.top = `${Math.random() * innerHeight}px`;
-    star.style.left = `${Math.random() * innerWidth}px`;
-    star.dataset.speed = (Math.random() * 0.5 + 0.1);
-    universe.appendChild(star);
-  }
+        <!-- CONTACT -->
+        <section id="contact" class="contact-section">
+          <div class="contact-wrapper">
+            <!-- LEFT -->
+            <div class="contact-left">
+              <h2>Get In Touch</h2>
+              <p class="sub-text">Just a form away! Drop your message.</p>
 
-  for (let i = 0; i < nebulas; i++) {
-    const n = document.createElement('div');
-    n.className = 'nebula';
-    n.style.top = `${Math.random() * innerHeight}px`;
-    n.style.left = `${Math.random() * innerWidth}px`;
-    n.dataset.speed = (Math.random() * 0.3 + 0.05);
-    universe.appendChild(n);
-  }
+              <div class="info-box">
+                <i class="fas fa-envelope"></i><span>kayub1601@gmail.com</span>
+              </div>
+              <div class="info-box">
+                <i class="fas fa-map-marker-alt"></i
+                ><span>Krishnagiri, Tamilnadu - 635001</span>
+              </div>
+            </div>
 
-  document.addEventListener('mousemove', e => {
-    const cx = innerWidth / 2, cy = innerHeight / 2;
-    const mx = (e.clientX - cx) / cx, my = (e.clientY - cy) / cy;
-    document.querySelectorAll('.star, .nebula').forEach(el => {
-      const s = parseFloat(el.dataset.speed);
-      el.style.transform = `translate(${mx * s * 50}px, ${my * s * 50}px)`;
-    });
-  });
-});
-</script>
+            <!-- RIGHT -->
+            <div class="contact-form-card slide-in-right">
+              <h3>🚀 Let’s Connect!</h3>
+              <form id="contactForm">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                />
+                <input
+                  type="text"
+                  name="phone"
+                  placeholder="Your Phone Number"
+                  required
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  required
+                />
+                <textarea
+                  name="message"
+                  placeholder="Write your message..."
+                  required
+                ></textarea>
+                <button type="submit" class="send-btn">
+                  Send Message <i class="fas fa-paper-plane"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
 
-</body>
+    <!-- ✅ Scripts -->
+    <script src="js/main.js" defer></script>
+    <script>
+      window.addEventListener("load", () => {
+        const s = document.createElement("script");
+        s.src = "js/chatbot-embed.js";
+        document.body.appendChild(s);
+      });
+    </script>
+
+    <!-- ✅ Universe Animation -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const universe = document.getElementById("universe");
+        const stars = 150,
+          nebulas = 4;
+
+        for (let i = 0; i < stars; i++) {
+          const star = document.createElement("div");
+          star.className = "star";
+          const size = Math.random() * 2 + 1;
+          star.style.width = `${size}px`;
+          star.style.height = `${size}px`;
+          star.style.top = `${Math.random() * innerHeight}px`;
+          star.style.left = `${Math.random() * innerWidth}px`;
+          star.dataset.speed = Math.random() * 0.5 + 0.1;
+          universe.appendChild(star);
+        }
+
+        for (let i = 0; i < nebulas; i++) {
+          const n = document.createElement("div");
+          n.className = "nebula";
+          n.style.top = `${Math.random() * innerHeight}px`;
+          n.style.left = `${Math.random() * innerWidth}px`;
+          n.dataset.speed = Math.random() * 0.3 + 0.05;
+          universe.appendChild(n);
+        }
+
+        document.addEventListener("mousemove", (e) => {
+          const cx = innerWidth / 2,
+            cy = innerHeight / 2;
+          const mx = (e.clientX - cx) / cx,
+            my = (e.clientY - cy) / cy;
+          document.querySelectorAll(".star, .nebula").forEach((el) => {
+            const s = parseFloat(el.dataset.speed);
+            el.style.transform = `translate(${mx * s * 50}px, ${
+              my * s * 50
+            }px)`;
+          });
+        });
+      });
+    </script>
+  </body>
 </html>
-  
