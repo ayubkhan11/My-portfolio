@@ -1,82 +1,200 @@
-/* ===== Portfolio JS ===== */
+/* ===== main.js — Optimized & Robust =====
+   - rAF-throttled scroll updates (no layout thrashing)
+   - Precomputed section centers (recalculated on resize / content changes)
+   - IntersectionObservers for animations
+   - Passive scroll listener
+   - Safe DOM checks
+   - Keeps your Web3Forms contact submit logic
+*/
 
-// --- Sidebar smooth scroll & highlight ---
-const navItems = document.querySelectorAll(".nav-item");
-const sections = document.querySelectorAll("section");
-const mainContent = document.querySelector(".main");
+'use strict';
 
+/* ---------------------------
+   Cached DOM references
+   --------------------------- */
+const navItems = Array.from(document.querySelectorAll('.nav-item'));
+const sections = Array.from(document.querySelectorAll('section'));
+const mainContent = document.querySelector('.main');
+
+/* If mainContent missing, bail early */
+if (!mainContent) {
+  console.warn('main.js: .main container not found — aborting some behaviors.');
+}
+
+/* ---------------------------
+   Utilities & state
+   --------------------------- */
+let ticking = false; // rAF throttle flag
+let sectionCenters = []; // cached center positions relative to scrollTop
+let lastContainerHeight = 0;
+
+/* ---------------------------
+   Compute & cache section centers
+   (distance calculation uses values relative to mainContent.scrollTop)
+   --------------------------- */
+function computeSectionCenters() {
+  if (!mainContent) return;
+
+  const scrollTop = mainContent.scrollTop;
+  const containerRect = mainContent.getBoundingClientRect();
+  const containerTop = containerRect.top;
+
+  sectionCenters = sections.map(sec => {
+    const rect = sec.getBoundingClientRect();
+    // rect.top is relative to viewport; convert to position relative to scrollTop
+    const absoluteTop = scrollTop + (rect.top - containerTop);
+    const center = absoluteTop + rect.height / 2;
+    return { id: sec.id, center, height: rect.height };
+  });
+
+  lastContainerHeight = mainContent.clientHeight;
+}
+
+/* initialize cached positions */
+computeSectionCenters();
+
+/* Recompute on resize and when mainContent size changes (e.g. dynamic content) */
+if (typeof ResizeObserver !== 'undefined' && mainContent) {
+  const ro = new ResizeObserver(() => {
+    computeSectionCenters();
+    // update active section immediately after layout change
+    updateActiveSection();
+  });
+  ro.observe(mainContent);
+}
+
+/* Also recalc on window resize as a fallback */
+window.addEventListener('resize', () => {
+  computeSectionCenters();
+}, { passive: true });
+
+/* ---------------------------
+   Smooth scroll on nav click
+   --------------------------- */
 navItems.forEach(item => {
-  item.addEventListener("click", () => {
+  item.addEventListener('click', (e) => {
     const id = item.dataset.section;
+    if (!id) return;
     const section = document.getElementById(id);
+    if (!section || !mainContent) return;
 
-    const containerHeight = mainContent.clientHeight;
-    const sectionHeight = section.offsetHeight;
-    const scrollTop = section.offsetTop - (containerHeight / 2) + (sectionHeight / 2);
+    // Recompute to ensure up-to-date values
+    computeSectionCenters();
 
-    mainContent.scrollTo({ top: scrollTop, behavior: "smooth" });
+    // Find cached center for this section
+    const info = sectionCenters.find(s => s.id === id);
+    const containerHeight = mainContent.clientHeight || lastContainerHeight || 0;
+    let targetTop;
+    if (info) {
+      // scrollTop should position container so section center aligns to container center
+      targetTop = info.center - (containerHeight / 2);
+    } else {
+      // fallback: compute using DOM properties
+      const sectionOffset = section.offsetTop || 0;
+      const sectionHeight = section.offsetHeight || 0;
+      targetTop = sectionOffset - (containerHeight / 2) + (sectionHeight / 2);
+    }
 
-    navItems.forEach(nav => nav.classList.remove("active"));
-    item.classList.add("active");
+    mainContent.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
+
+    // update active class immediately for perceived responsiveness
+    navItems.forEach(nav => nav.classList.remove('active'));
+    item.classList.add('active');
   });
 });
 
+/* ---------------------------
+   IntersectionObservers for animations
+   --------------------------- */
+const observeOnce = (elements, options, onEnter) => {
+  if (!elements || elements.length === 0) return;
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        onEnter(entry.target);
+        obs.unobserve(entry.target);
+      }
+    });
+  }, options);
+  elements.forEach(el => observer.observe(el));
+};
 
+// skills
+observeOnce(document.querySelectorAll('.skill'), { threshold: 0.2 }, el => el.classList.add('visible'));
 
-// Animate skills on scroll
-const skillElements = document.querySelectorAll(".skill");
-const skillObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-      skillObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.2 });
-skillElements.forEach(skill => skillObserver.observe(skill));
+// cards
+observeOnce(document.querySelectorAll('.card'), { threshold: 0.2 }, el => el.classList.add('visible'));
 
-// Animate cards on scroll
-const cards = document.querySelectorAll(".card");
-const cardObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-      cardObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.2 });
-cards.forEach(card => cardObserver.observe(card));
+/* slide-in-right (single element) */
+const slideElement = document.querySelector('.slide-in-right');
+if (slideElement) {
+  const slideObs = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('slide-in-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.05 });
+  slideObs.observe(slideElement);
+}
 
-// Highlight sidebar based on scroll
-mainContent.addEventListener("scroll", () => {
+/* ---------------------------
+   Active section update (rAF throttled)
+   --------------------------- */
+function updateActiveSection() {
+  if (!mainContent || sectionCenters.length === 0) return;
+
   const scrollTop = mainContent.scrollTop;
-  const containerHeight = mainContent.clientHeight;
+  const containerHeight = mainContent.clientHeight || lastContainerHeight || 0;
   const containerCenter = scrollTop + containerHeight / 2;
 
-  let closestSection = sections[0];
+  // find closest section using cached centers
   let minDistance = Infinity;
+  let closestId = sectionCenters[0]?.id || null;
 
-  sections.forEach(section => {
-    const sectionCenter = section.offsetTop + section.offsetHeight / 2;
-    const distance = Math.abs(containerCenter - sectionCenter);
+  for (let i = 0; i < sectionCenters.length; i++) {
+    const s = sectionCenters[i];
+    const distance = Math.abs(containerCenter - s.center);
     if (distance < minDistance) {
       minDistance = distance;
-      closestSection = section;
+      closestId = s.id;
     }
-  });
+  }
 
-  const activeId = closestSection.id;
-  navItems.forEach(nav => {
-    nav.classList.toggle("active", nav.dataset.section === activeId);
-  });
-});
+  if (closestId) {
+    navItems.forEach(nav => {
+      nav.classList.toggle('active', nav.dataset.section === closestId);
+    });
+  }
+}
 
-// --- Contact Form Submission (Web3Forms) ---
-document.addEventListener("DOMContentLoaded", () => {
-  const ACCESS_KEY = "24e00843-76f5-4eea-8b41-b73e4bcacd9c"; // <-- Replace with your Web3Forms key
+/* rAF-throttled scroll handler */
+if (mainContent) {
+  mainContent.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        // If container height changed (e.g. due to dynamic content), recompute centers
+        if (mainContent.clientHeight !== lastContainerHeight) {
+          computeSectionCenters();
+        }
+        updateActiveSection();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+}
+
+/* ---------------------------
+   Contact form (Web3Forms) — DOMContentLoaded safe
+   --------------------------- */
+document.addEventListener('DOMContentLoaded', () => {
+  const ACCESS_KEY = '24e00843-76f5-4eea-8b41-b73e4bcacd9c'; // replace if needed
   const form = document.getElementById('contactForm');
+  if (!form) return;
 
-  // Create a status message element dynamically if it doesn't exist
+  // create status message container if missing
   let statusMessage = document.getElementById('statusMessage');
   if (!statusMessage) {
     statusMessage = document.createElement('div');
@@ -87,86 +205,77 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const submitBtn = form.querySelector('.send-btn');
-  const btnIcon = submitBtn.querySelector('i');
-  const btnText = document.createTextNode(submitBtn.textContent.replace(btnIcon?.outerHTML || '', '').trim());
+  const btnIcon = submitBtn ? submitBtn.querySelector('i') : null;
+  const rawText = submitBtn ? submitBtn.textContent.replace(btnIcon?.outerHTML || '', '').trim() : 'Send Message';
+  const btnText = document.createTextNode(rawText);
 
-  submitBtn.innerHTML = '';
-  submitBtn.appendChild(btnText);
-  if (btnIcon) submitBtn.appendChild(btnIcon);
+  if (submitBtn) {
+    submitBtn.innerHTML = '';
+    submitBtn.appendChild(btnText);
+    if (btnIcon) submitBtn.appendChild(btnIcon);
+  }
 
   let lastSubmitTime = 0;
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-
     const now = Date.now();
-    if (now - lastSubmitTime < 10000) { // 10-second cooldown
+    if (now - lastSubmitTime < 10000) { // 10s cooldown
       showMessage('Please wait a few seconds before sending again.', 'error');
       return;
     }
     lastSubmitTime = now;
 
-    // Disable button and show loading state
-    submitBtn.disabled = true;
-    btnText.textContent = 'Sending...';
-    if (btnIcon) btnIcon.className = 'spinner';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      btnText.textContent = 'Sending...';
+      if (btnIcon) btnIcon.className = 'spinner';
+    }
     statusMessage.style.display = 'none';
 
     const formData = new FormData(form);
     formData.append('access_key', ACCESS_KEY);
 
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const resp = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         body: formData
       });
-
-      const result = await response.json();
-      console.log('Web3Forms response:', result);
-
+      const result = await resp.json();
       if (result.success) {
         showMessage("Message sent successfully! We'll get back to you soon.", 'success');
         form.reset();
       } else {
         if (result.message && result.message.includes('domain')) {
-          showMessage(
-            "Submission blocked: Web3Forms domain restriction. Add http://localhost or your domain in Web3Forms dashboard.",
-            'error'
-          );
+          showMessage("Submission blocked: Web3Forms domain restriction. Add your domain in Web3Forms dashboard.", 'error');
         } else {
           showMessage(result.message || 'Something went wrong. Please try again.', 'error');
         }
       }
     } catch (err) {
-      console.error('Error submitting form:', err);
+      console.error('Contact submit error:', err);
       showMessage('Network error. Please check your connection and try again.', 'error');
     } finally {
-      submitBtn.disabled = false;
-      btnText.textContent = 'Send Message';
-      if (btnIcon) btnIcon.className = 'fas fa-paper-plane';
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        btnText.textContent = rawText;
+        if (btnIcon) btnIcon.className = 'fas fa-paper-plane';
+      }
     }
   });
 
-function showMessage(message, type) {
-  statusMessage.textContent = message;
-  statusMessage.className = `status-message ${type} show`; // add "show" for animation
-  statusMessage.style.display = 'block';
+  function showMessage(message, type) {
+    statusMessage.textContent = message;
+    statusMessage.className = `status-message ${type} show`;
+    statusMessage.style.display = 'block';
+    setTimeout(() => statusMessage.classList.remove('show'), 5000);
+  }
+});
 
-  setTimeout(() => {
-    statusMessage.classList.remove('show'); // hide smoothly
-  }, 5000);
+/* ---------------------------
+   Small safety: log if sections/nav mismatch
+   --------------------------- */
+if (sections.length === 0 || navItems.length === 0) {
+  // no-op but helpful during development
+  // console.info('main.js: no sections or nav items found');
 }
-
-});
-// Slide-in animation when element enters viewport
-const slideElement = document.querySelector('.slide-in-right');
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      slideElement.classList.add('slide-in-visible');
-    }
-  });
-});
-
-observer.observe(slideElement);

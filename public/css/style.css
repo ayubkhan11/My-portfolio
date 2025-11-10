@@ -3,6 +3,17 @@
    - Keeps original layout & design
    ========================= */
 
+/* ===== Font Awesome Performance Fix ===== */
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.woff2") format("woff2"),
+       url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.woff") format("woff");
+}
+
+
 /* ===== Reset & base ===== */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -97,6 +108,19 @@ body {
   background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
   color: var(--accent1);
 }
+
+.icon {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  filter: invert(100%) brightness(0) saturate(100%); /* make white if needed */
+  transition: transform 0.2s ease;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+}
+
 
 .social { margin-top: 22px; }
 .social .social-item { display:flex; align-items:center; gap:10px; color:#dfe9f3; margin:10px 0; text-decoration:none; transition: color .2s, transform .2s; }

@@ -5,19 +5,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ayub Khan J — Portfolio</title>
 
-<!-- Fonts & Icons -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<!-- ✅ Preload critical images -->
+<link rel="preload" as="image" href="images/profile.webp" fetchpriority="high">
+<link rel="preload" as="image" href="images/hero-illustration.webp" fetchpriority="high">
+
+<!-- ✅ Preconnect to critical domains -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+<!-- ✅ Preload & non-blocking CSS -->
+<link rel="preload" href="css/style.css" as="style">
+<link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="css/style.css"></noscript>
+
+<!-- ✅ Google Fonts -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"></noscript>
+
+<!-- ✅ Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<!-- Styles -->
-<link rel="stylesheet" href="css/style.css" />
-
-<!-- Favicon (Tab Icon) -->
+<!-- ✅ Favicon -->
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
 <link rel="shortcut icon" href="/favicon.png" type="image/png">
 
 <style>
-/* Universe background */
+/* --- Critical Above-the-Fold CSS --- */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* Universe Background */
 .universe {
   position: fixed;
   inset: 0;
@@ -27,7 +51,6 @@
   z-index: -1;
   background: #000;
 }
-
 .star {
   position: absolute;
   border-radius: 50%;
@@ -35,31 +58,32 @@
   opacity: 0.8;
   animation: twinkle 2s infinite alternate;
 }
-
 .nebula {
   position: absolute;
   border-radius: 50%;
   opacity: 0.3;
-  width: 250px; height: 250px;
-  background: radial-gradient(circle, rgba(255,0,150,0.2) 0%, rgba(0,255,255,0.2) 40%, rgba(0,0,255,0.1) 70%, transparent 100%);
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle,
+    rgba(255,0,150,0.2) 0%,
+    rgba(0,255,255,0.2) 40%,
+    rgba(0,0,255,0.1) 70%,
+    transparent 100%);
   filter: blur(50px);
 }
-
 @keyframes twinkle {
   0% { opacity: 0.4; }
   100% { opacity: 0.9; }
 }
-
-
 </style>
 </head>
-<body>
 
+<body>
 <!-- Universe background container -->
 <div class="universe" id="universe"></div>
 
 <div class="app-window">
-
+  <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="window-dots">
       <span class="dot red"></span>
@@ -68,12 +92,14 @@
     </div>
 
     <div class="profile">
-      <img src="/images/profile.png" alt="Ayub Khan">
+      <picture>
+        <source srcset="images/profile.webp" type="image/webp">
+        <img src="images/profile.png" alt="Ayub Khan" width="150" height="150" loading="lazy">
+      </picture>
     </div>
 
-    <!-- Profile social icons (horizontal) -->
     <div class="profile-social">
-      <a href="https://www.linkedin.com/in/ayub-khan-218630375?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.linkedin.com/in/ayub-khan-218630375" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
       <a href="https://github.com/ayubkhan11" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
       <a href="mailto:kayub1601@gmail.com" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
     </div>
@@ -89,6 +115,7 @@
     </nav>
   </aside>
 
+  <!-- MAIN CONTENT -->
   <main class="main">
 
     <!-- ABOUT -->
@@ -108,7 +135,10 @@
           <a class="btn-download" href="resume/Ayub_Khan_J_Resume.pdf" download>Download Resume</a>
         </div>
         <div class="hero-right">
-          <img src="images/hero-illustration.png" alt="Hero illustration">
+          <picture>
+            <source srcset="images/hero-illustration.webp" type="image/webp">
+            <img src="images/hero-illustration.png" alt="Hero illustration" loading="lazy" fetchpriority="high">
+          </picture>
         </div>
       </div>
     </section>
@@ -117,71 +147,75 @@
     <section id="skills" class="section">
       <h2 class="section-title">My Skills</h2>
       <div class="skills-row">
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg"><span>Flutter</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg"><span>Dart</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"><span>Next.js</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"><span>Python</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"><span>HTML</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"><span>CSS</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg"><span>Postman</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg"><span>Android Studio</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xcode/xcode-original.svg"><span>Xcode</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"><span>Firebase</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"><span>Git</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/flutter/flutter-original.svg"><span>Flutter</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/dart/dart-original.svg"><span>Dart</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/nextjs/nextjs-original.svg"><span>Next.js</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/python/python-original.svg"><span>Python</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/html5/html5-original.svg"><span>HTML</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/css3/css3-original.svg"><span>CSS</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/postman/postman-original.svg"><span>Postman</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/androidstudio/androidstudio-original.svg"><span>Android Studio</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/xcode/xcode-original.svg"><span>Xcode</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/firebase/firebase-plain.svg"><span>Firebase</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/git/git-original.svg"><span>Git</span></div>
       </div>
     </section>
 
-<!-- PROJECTS -->
-<section id="projects" class="section">
-  <h2 class="section-title">My Projects</h2>
-  <div class="project-grid">
-    <div class="project card">
-      <h3><i class="fas fa-code"></i> GPRS</h3>
-      <p>Service booking app for home appliances that lets users schedule repairs with verified professionals. Includes call masking to ensure secure communication.</p>
-      <div class="project-tech-icons">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" title="Flutter">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" title="Dart">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" title="Postman">
-      </div>
-    </div>
-    <div class="project card">
-      <h3><i class="fas fa-code"></i> Pilling</h3>
-      <p>Construction management app for tracking tasks and requesting materials. Includes SOS quick-call and easy communication between site workers and officers.</p>
-      <div class="project-tech-icons">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" title="Flutter">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" title="Dart">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg" title="Android Studio">
-      </div>
-    </div>
-    <div class="project card">
-      <h3><i class="fas fa-code"></i> Flicky</h3>
-      <p>Short-form video sharing app where users can watch, upload, and interact with reels. Supports advanced media features like trimming and merging audio tracks.</p>
-      <div class="project-tech-icons">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" title="Flutter">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" title="Dart">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" title="Postman">
-      </div>
-    </div>
-    <div class="project card">
-      <h3><i class="fas fa-code"></i> Hi-Tech Constructions</h3>
-      <p>Website for a construction company showcasing services, projects, and company details with a clean and responsive design.</p>
-      <div class="project-tech-icons">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" title="HTML">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" title="CSS">
-      </div>
-    </div>
-    <div class="project card">
-      <h3><i class="fas fa-code"></i> WhatsApp Automation Message</h3>
-      <p>Python-based automation tool for sending bulk WhatsApp messages using Selenium and ChromeDriver, designed to streamline communication tasks.</p>
-      <div class="project-tech-icons">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" title="Python">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg" title="Selenium">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg" title="ChromeDriver">
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <h2 class="section-title">My Projects</h2>
+      <div class="project-grid">
 
+        <div class="project card">
+          <h3><i class="fas fa-code"></i> GPRS</h3>
+          <p>Service booking app for home appliances that lets users schedule repairs with verified professionals. Includes call masking for secure communication.</p>
+          <div class="project-tech-icons">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" title="Flutter">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" title="Dart">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" title="Postman">
+          </div>
+        </div>
+
+        <div class="project card">
+          <h3><i class="fas fa-code"></i> Pilling</h3>
+          <p>Construction management app for tracking tasks and requesting materials. Includes SOS quick-call and easy communication between site workers and officers.</p>
+          <div class="project-tech-icons">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" title="Flutter">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" title="Dart">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg" title="Android Studio">
+          </div>
+        </div>
+
+        <div class="project card">
+          <h3><i class="fas fa-code"></i> Flicky</h3>
+          <p>Short-form video app with upload, watch, and interaction features. Includes advanced editing tools for trimming and merging audio tracks.</p>
+          <div class="project-tech-icons">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" title="Flutter">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" title="Dart">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" title="Postman">
+          </div>
+        </div>
+
+        <div class="project card">
+          <h3><i class="fas fa-code"></i> Hi-Tech Constructions</h3>
+          <p>Company website showcasing services, projects, and details with a clean and responsive design.</p>
+          <div class="project-tech-icons">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" title="HTML">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" title="CSS">
+          </div>
+        </div>
+
+        <div class="project card">
+          <h3><i class="fas fa-code"></i> WhatsApp Automation Message</h3>
+          <p>Python-based automation tool for sending bulk WhatsApp messages using Selenium and ChromeDriver.</p>
+          <div class="project-tech-icons">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" title="Python">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg" title="Selenium">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg" title="ChromeDriver">
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- EXPERIENCE -->
     <section id="jobs" class="section">
@@ -208,95 +242,84 @@
       </div>
     </section>
 
-      <!-- CONTACT -->
-<section id="contact" class="contact-section">
-  <div class="contact-wrapper">
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section">
+      <div class="contact-wrapper">
 
-    <!-- LEFT SIDE -->
-    <div class="contact-left">
-      <h2>Get In to touch</h2>
-      <p class="sub-text">Just a form way! Drop your message.</p>
+        <!-- LEFT -->
+        <div class="contact-left">
+          <h2>Get In Touch</h2>
+          <p class="sub-text">Just a form away! Drop your message.</p>
 
-      <div class="info-box">
-        <i class="fas fa-envelope"></i>
-        <span>kayub1601@gmail.com</span>
+          <div class="info-box"><i class="fas fa-envelope"></i><span>kayub1601@gmail.com</span></div>
+          <div class="info-box"><i class="fas fa-map-marker-alt"></i><span>Krishnagiri, Tamilnadu - 635001</span></div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="contact-form-card slide-in-right">
+          <h3>🚀 Let’s Connect!</h3>
+          <form id="contactForm">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="text" name="phone" placeholder="Your Phone Number" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Write your message..." required></textarea>
+            <button type="submit" class="send-btn">Send Message <i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
       </div>
-
-      <div class="info-box">
-        <i class="fas fa-map-marker-alt"></i>
-        <span>Krishnagiri, Tamilnadu - 635001</span>
-      </div>
-    </div>
-
-    <!-- RIGHT SIDE (Add animated class here) -->
-    <div class="contact-form-card slide-in-right">
-      <h3>🚀 Let’s Connect!</h3>
-
-      <form id="contactForm">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="text" name="phone" placeholder="Your Phone Number" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Write your message..." required></textarea>
-
-        <button type="submit" class="send-btn">
-          Send Message <i class="fas fa-paper-plane"></i>
-        </button>
-      </form>
-    </div>
-  </div>
-</section>
-
-
+    </section>
 
   </main>
 </div>
 
-
-
-<!-- JS -->
-<script src="js/main.js"></script>
+<!-- ✅ Scripts -->
+<script src="js/main.js" defer></script>
 <script>
-// Universe background script
-const universe = document.getElementById('universe');
-const starsCount = 150;
-const nebulaCount = 4;
+window.addEventListener("load", () => {
+  const s = document.createElement("script");
+  s.src = "js/chatbot-embed.js";
+  document.body.appendChild(s);
+});
+</script>
 
-// Create stars
-for (let i = 0; i < starsCount; i++) {
-  const star = document.createElement('div');
-  star.className = 'star';
-  const size = Math.random() * 2 + 1;
-  star.style.width = size + 'px';
-  star.style.height = size + 'px';
-  star.style.top = Math.random() * window.innerHeight + 'px';
-  star.style.left = Math.random() * window.innerWidth + 'px';
-  star.dataset.speed = (Math.random() * 0.5 + 0.1);
-  universe.appendChild(star);
-}
+<!-- ✅ Universe Animation -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const universe = document.getElementById('universe');
+  const stars = 150, nebulas = 4;
 
-// Create nebulae
-for (let i = 0; i < nebulaCount; i++) {
-  const nebula = document.createElement('div');
-  nebula.className = 'nebula';
-  nebula.style.top = Math.random() * window.innerHeight + 'px';
-  nebula.style.left = Math.random() * window.innerWidth + 'px';
-  nebula.dataset.speed = (Math.random() * 0.3 + 0.05);
-  universe.appendChild(nebula);
-}
+  for (let i = 0; i < stars; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    const size = Math.random() * 2 + 1;
+    star.style.width = `${size}px`;
+    star.style.height = `${size}px`;
+    star.style.top = `${Math.random() * innerHeight}px`;
+    star.style.left = `${Math.random() * innerWidth}px`;
+    star.dataset.speed = (Math.random() * 0.5 + 0.1);
+    universe.appendChild(star);
+  }
 
-// Cursor-based parallax
-document.addEventListener('mousemove', e => {
-  const centerX = window.innerWidth / 2;
-  const centerY = window.innerHeight / 2;
-  const moveX = (e.clientX - centerX) / centerX;
-  const moveY = (e.clientY - centerY) / centerY;
+  for (let i = 0; i < nebulas; i++) {
+    const n = document.createElement('div');
+    n.className = 'nebula';
+    n.style.top = `${Math.random() * innerHeight}px`;
+    n.style.left = `${Math.random() * innerWidth}px`;
+    n.dataset.speed = (Math.random() * 0.3 + 0.05);
+    universe.appendChild(n);
+  }
 
-  document.querySelectorAll('.star, .nebula').forEach(el => {
-    const speed = parseFloat(el.dataset.speed);
-    el.style.transform = `translate(${moveX * speed * 50}px, ${moveY * speed * 50}px)`;
+  document.addEventListener('mousemove', e => {
+    const cx = innerWidth / 2, cy = innerHeight / 2;
+    const mx = (e.clientX - cx) / cx, my = (e.clientY - cy) / cy;
+    document.querySelectorAll('.star, .nebula').forEach(el => {
+      const s = parseFloat(el.dataset.speed);
+      el.style.transform = `translate(${mx * s * 50}px, ${my * s * 50}px)`;
+    });
   });
 });
 </script>
-<script src="js/chatbot-embed.js"></script>
+
 </body>
 </html>
+  
